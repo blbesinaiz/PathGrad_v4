@@ -9,19 +9,11 @@
         <h4>Create a new account</h4>
         <asp:ValidationSummary runat="server" CssClass="text-danger" />
         <div class="form-group">
-            <asp:Label runat="server" AssociatedControlID="FirstName" CssClass="col-md-2 control-label">First Name</asp:Label>
+            <asp:Label runat="server" AssociatedControlID="Name" CssClass="col-md-2 control-label">Name</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="FirstName" CssClass="form-control" TextMode="SingleLine" />
-                <asp:RequiredFieldValidator runat="server" ControlToValidate="FirstName"
-                    CssClass="text-danger" ErrorMessage="The first name field is required." />
-            </div>
-        </div>
-        <div class="form-group">
-            <asp:Label runat="server" AssociatedControlID="LastName" CssClass="col-md-2 control-label">Last Name</asp:Label>
-            <div class="col-md-10">
-                <asp:TextBox runat="server" ID="LastName" CssClass="form-control" TextMode="SingleLine" />
-                <asp:RequiredFieldValidator runat="server" ControlToValidate="LastName"
-                    CssClass="text-danger" ErrorMessage="The last name field is required." />
+                <asp:TextBox runat="server" ID="Name" CssClass="form-control" TextMode="SingleLine" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="Name"
+                    CssClass="text-danger" ErrorMessage="The Name field is required." />
             </div>
         </div>
          <div class="form-group">
@@ -31,19 +23,6 @@
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="StudentID"
                     CssClass="text-danger" ErrorMessage="The Student ID field is required." />
             </div>
-        </div>
-         <div class="form-group">
-            <asp:Label runat="server" AssociatedControlID="Classification" CssClass="col-md-2 control-label">Classification</asp:Label>
-            <div class="col-md-10">
-                <asp:DropDownList ID="Classification" runat="server" Height="40px" Width="283px">
-                     <asp:ListItem Enabled="true" Text="Select Classification" Value="-1"></asp:ListItem>
-                     <asp:ListItem Text="Student" Value="Student"></asp:ListItem>
-                     <asp:ListItem Text="Faculty" Value="Faculty"></asp:ListItem>
-                </asp:DropDownList>
-                <asp:RequiredFieldValidator runat="server" ControlToValidate="Classification"
-                    CssClass="text-danger" ErrorMessage="The Classification field is required." />
-            </div>
-        </div>
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">NSU Email</asp:Label>
             <div class="col-md-10">
@@ -75,5 +54,6 @@
                 <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-default" />
             </div>
         </div>
+    </div>
     </div>
 </asp:Content>
