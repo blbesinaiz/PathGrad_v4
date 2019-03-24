@@ -1,0 +1,115 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="StudentSite.master.cs" Inherits="PathGrad_v4_web_.Student.StudentSite" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+       
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> | Path To Grad </title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+     <!-- Open Settings popup window!! -->
+    <script type ="text/javascript">
+        function OpenNewWindow() {
+            window.open("SimpleTabControl.aspx","mywindow","location=10,status=1,scrollbars=1,width=500,height=500");
+        }
+    </script>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <!--  NAVIGATION BAR -->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/">Path to Graduation</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/Student/PerfectPath">Perfect Path</a></li>
+                        <li><a runat="server" href="~/Student/AlternatePaths">Alternat Paths</a></li>
+                        <li><a runat="server" href="~/Student/WhatIf">What-If Central</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <asp:Label ID="Welcome" runat="server" Text="Welcome"></asp:Label>
+                        <li><a runat="server" href="~/Default">Log Off</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--  STUDENT PROFILE -->
+        <div class="container body-content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3>Profile</h3>
+                            <asp:Panel ID="Panel_Profile" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="262px">
+                                <asp:Image ID="Profile_Pic" runat="server" Height="78px" Width="132px" BorderStyle="Solid" ImageAlign="Bottom" /><br /><br />
+                                <asp:Label ID="StudentID" runat="server" Text="Student ID: "></asp:Label>
+                                <asp:TextBox ID="TextBox1" runat="server" Width="159px"></asp:TextBox><br /><br />
+                                <asp:Label ID="Email" runat="server" Text="Email: "></asp:Label>
+                                <asp:TextBox ID="TextBox3" runat="server" Width="161px"></asp:TextBox><br /><br />
+                                <asp:Button ID="Button1" runat="server" OnClientClick="OpenNewWindow();" Text="Customize" />
+
+                            </asp:Panel>
+                    </div>
+
+                    <!--  STUDENT STATUS -->
+                    <div class="col-md-4">
+                        <h3>Progress </h3>
+                        <asp:Panel ID="Panel_Status" runat="server" BorderStyle="Solid" BorderWidth="1px" HorizontalAlign="Center" Height="262px">
+
+                        </asp:Panel>
+                    </div>
+                    <!--  STUDENT SNAPSHOT-->
+                    <div class="col-md-4">
+                        <h3>Snapshot</h3>
+                            <asp:Panel ID="Panel_Snapshot" runat="server" BorderStyle="Solid" BorderWidth="1px" Height="262px">
+                                
+                      </asp:Panel>
+                    </div>
+                             
+                </div>
+            <!--  PLACE HOLDER FOR CONTENT -->
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <footer>
+                <p>Norfolk State Univeristy &copy; <%: DateTime.Now.Year %> -&nbsp; Path To Grdauation By Brianna and Donn</p>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>

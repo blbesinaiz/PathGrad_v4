@@ -1,0 +1,3 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Student/StudentSite.Master" AutoEventWireup="true" CodeBehind="PerfectPath.aspx.cs" Inherits="PathGrad_v4_web_.Student.PerfectPath" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+</asp:Content>

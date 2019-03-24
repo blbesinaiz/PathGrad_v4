@@ -113,8 +113,7 @@ input,
 optgroup,
 select,
 textarea {
-  margin: 0;
-  font: inherit;
+  margin: 0 0 0 17px;
   color: inherit;
 }
 button {
@@ -1114,6 +1113,8 @@ figure {
 }
 img {
   vertical-align: middle;
+    margin-left: 331px;
+    margin-right: 3px;
 }
 .img-responsive,
 .thumbnail > img,
