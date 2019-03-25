@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace PathGrad_v4_web_.Student_View
 {
-    public partial class StudentSite : System.Web.UI.MasterPage
+    public partial class LandingPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -1,30 +1,23 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="StudentSite.master.cs" Inherits="PathGrad_v4_web_.Student.StudentSite" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="StudentSite.master.cs" Inherits="PathGrad_v4_web_.Student_View.StudentSite" %>
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head runat="server">
-       
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> | Path To Grad </title>
+    <title><%: Page.Title %> | Path to Grad </title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
+
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
-     <!-- Open Settings popup window!! -->
-    <script type ="text/javascript">
-        function OpenNewWindow() {
-            window.open("SimpleTabControl.aspx","mywindow","location=10,status=1,scrollbars=1,width=500,height=500");
-        }
-    </script>
-
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -45,7 +38,6 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <!--  NAVIGATION BAR -->
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -54,62 +46,29 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Path to Graduation</a>
+                    <a class="navbar-brand" runat="server" href="~/Student_View/LandingPage"> Overview</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/Student/PerfectPath">Perfect Path</a></li>
-                        <li><a runat="server" href="~/Student/AlternatePaths">Alternat Paths</a></li>
-                        <li><a runat="server" href="~/Student/WhatIf">What-If Central</a></li>
+                        <li><a runat="server" href="~/Student_View/PerfectPath">Perfect Path</a></li>
+                        <li><a runat="server" href="~/Student_View/AlternatePaths">Alternate Paths</a></li>
+                        <li><a runat="server" href="~/Student_View/What-IF">What-If Central</a></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <asp:Label ID="Welcome" runat="server" Text="Welcome"></asp:Label>
-                        <li><a runat="server" href="~/Default">Log Off</a></li>
-                    </ul>
+                     <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/">Log off</a></li>
+                     </ul>
                 </div>
             </div>
         </div>
-
-        <!--  STUDENT PROFILE -->
         <div class="container body-content">
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3>Profile</h3>
-                            <asp:Panel ID="Panel_Profile" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="262px">
-                                <asp:Image ID="Profile_Pic" runat="server" Height="78px" Width="132px" BorderStyle="Solid" ImageAlign="Bottom" /><br /><br />
-                                <asp:Label ID="StudentID" runat="server" Text="Student ID: "></asp:Label>
-                                <asp:TextBox ID="TextBox1" runat="server" Width="159px"></asp:TextBox><br /><br />
-                                <asp:Label ID="Email" runat="server" Text="Email: "></asp:Label>
-                                <asp:TextBox ID="TextBox3" runat="server" Width="161px"></asp:TextBox><br /><br />
-                                <asp:Button ID="Button1" runat="server" OnClientClick="OpenNewWindow();" Text="Customize" />
-
-                            </asp:Panel>
-                    </div>
-
-                    <!--  STUDENT STATUS -->
-                    <div class="col-md-4">
-                        <h3>Progress </h3>
-                        <asp:Panel ID="Panel_Status" runat="server" BorderStyle="Solid" BorderWidth="1px" HorizontalAlign="Center" Height="262px">
-
-                        </asp:Panel>
-                    </div>
-                    <!--  STUDENT SNAPSHOT-->
-                    <div class="col-md-4">
-                        <h3>Snapshot</h3>
-                            <asp:Panel ID="Panel_Snapshot" runat="server" BorderStyle="Solid" BorderWidth="1px" Height="262px">
-                                
-                      </asp:Panel>
-                    </div>
-                             
-                </div>
-            <!--  PLACE HOLDER FOR CONTENT -->
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-
+            <hr />
             <footer>
-                <p>Norfolk State Univeristy &copy; <%: DateTime.Now.Year %> -&nbsp; Path To Grdauation By Brianna and Donn</p>
+                <p> Norfolk State University &copy; <%: DateTime.Now.Year %> Path To Graduation by Brianna and Donn</p>
             </footer>
         </div>
+
     </form>
 </body>
 </html>

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace PathGrad_v4_web_.Student_View
+namespace PathGrad_v4_web_.Student
 {
     public partial class StudentSite : System.Web.UI.MasterPage
     {

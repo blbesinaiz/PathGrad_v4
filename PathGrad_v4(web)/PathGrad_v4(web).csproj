@@ -152,6 +152,14 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Images\4 - Roadmap FINAL - Chart.png" />
+    <Content Include="Images\4 - Roadmap FINAL - FreshDone.png" />
+    <Content Include="Images\4 - Roadmap FINAL - JuniorDone.png" />
+    <Content Include="Images\4 - Roadmap FINAL - SeniorDone.png" />
+    <Content Include="Images\4 - Roadmap FINAL - SophDone.png" />
+    <Content Include="Images\Grad.png" />
+    <Content Include="Images\Path To Grad Logo.png" />
+    <Content Include="Images\profile_icon.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -181,7 +189,11 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="Student_View\AlternatePaths.aspx" />
+    <Content Include="Student_View\Initialize.aspx" />
+    <Content Include="Student_View\LandingPage.aspx" />
     <Content Include="Student_View\PerfectPath.aspx" />
+    <Content Include="Student_View\What-If.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -259,6 +271,27 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="Student_View\AlternatePaths.aspx.cs">
+      <DependentUpon>AlternatePaths.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student_View\AlternatePaths.aspx.designer.cs">
+      <DependentUpon>AlternatePaths.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student_View\Initialize.aspx.cs">
+      <DependentUpon>Initialize.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student_View\Initialize.aspx.designer.cs">
+      <DependentUpon>Initialize.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student_View\LandingPage.aspx.cs">
+      <DependentUpon>LandingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student_View\LandingPage.aspx.designer.cs">
+      <DependentUpon>LandingPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Student_View\PerfectPath.aspx.cs">
       <DependentUpon>PerfectPath.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -273,6 +306,20 @@
     <Compile Include="Student_View\StudentSite.Master.designer.cs">
       <DependentUpon>StudentSite.Master</DependentUpon>
     </Compile>
+    <Compile Include="Student_View\StudentSite_v0.Master.cs">
+      <DependentUpon>StudentSite_v0.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student_View\StudentSite_v0.Master.designer.cs">
+      <DependentUpon>StudentSite_v0.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Student_View\What-If.aspx.cs">
+      <DependentUpon>What-If.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student_View\What-If.aspx.designer.cs">
+      <DependentUpon>What-If.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -283,7 +330,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
     <Folder Include="Logic\Account\" />
     <Folder Include="Logic\Database\" />
     <Folder Include="Logic\Paths\" />
@@ -293,8 +339,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
-    <Content Include="Student_View\StudentSite.Master" />
+    <Content Include="Student_View\StudentSite_v0.Master" />
     <Content Include="Tracks\BS.CSC.IA.csv" />
+    <Content Include="Student_View\StudentSite.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
