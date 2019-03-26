@@ -28,6 +28,7 @@ namespace PathGrad_v4_web_.Account
             //Initialize Session with Student Values
             Student1.ID = userID;
             Student1.name = userName;
+            Student1.email = userEmail;
 
             //Create Bson Document
             var document = new BsonDocument

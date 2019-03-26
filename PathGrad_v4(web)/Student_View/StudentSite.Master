@@ -55,6 +55,7 @@
                         <li><a runat="server" href="~/Student_View/What-IF">What-If Central</a></li>
                     </ul>
                      <ul class="nav navbar-nav navbar-right">
+                         <asp:Label ID="Label_Name" runat="server" Text="Student Name"></asp:Label>
                                 <li><a runat="server" href="~/">Log off</a></li>
                      </ul>
                 </div>

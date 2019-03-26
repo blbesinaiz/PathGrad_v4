@@ -34,7 +34,7 @@ namespace PathGrad_v4_web_.Account
                 //updateAttempts(userID);
 
                 //After settingup/restore session, transition to student profile page
-                Response.Redirect("~/Student_View/PerfectPath.aspx");
+                Response.Redirect("~/Student_View/LandingPage.aspx");
             }
             else
             {

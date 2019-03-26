@@ -1,5 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Student_View/StudentSite.Master" AutoEventWireup="true" CodeBehind="LandingPage.aspx.cs" Inherits="PathGrad_v4_web_.Student_View.LandingPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+
+ <!-- Open Settings popup window!! -->
+    <script type ="text/javascript">
+        function OpenNewWindow() {
+            window.open("Initialize.aspx","mywindow","location=100,status=1,scrollbars=1,width=500,height=500");
+        }
+    </script>
+
     <div class="jumbotron">
         <h1 style=<strong>Snapshot</strong></h1>
         <hr width="450" align="left" color="Gainsboro" />
@@ -92,12 +100,12 @@
                 <asp:Image ID="Image_Profile" runat="server" ImageUrl="~/Images/profile_icon.png" width="125px" style="padding-right: 15px; padding-top: 20px;" Height="125px" ImageAlign="Left"/>
                 <asp:Button ID="Upload" runat="server" Text="Upload" />
                 <asp:Button ID="Delete" runat="server" Text="Delete" />
-                <br />
+                <br /><br />
                 <asp:Label ID="StudentID" runat="server" Text="Student ID: "></asp:Label>
                 <asp:TextBox ID="txt_ID" runat="server" Text="Student ID"></asp:TextBox> <br/>
                 <asp:Label ID="Email" runat="server" Text="Email: "></asp:Label>
                 <asp:TextBox ID="txt_Email" runat="server" Text="Student Email"></asp:TextBox> <br/>
-                <asp:Button ID="Customize" runat="server" Text="Customize" />
+                <asp:Button ID="Customize" runat="server" OnClientClick="OpenNewWindow();" Text="Customize" />
 
             </asp:Panel>
         </div>

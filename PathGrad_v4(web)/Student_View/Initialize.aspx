@@ -16,7 +16,7 @@
                     <asp:DropDownList ID="TrackList" runat="server">
                         <asp:ListItem>BS.CSC.IA</asp:ListItem>
                     </asp:DropDownList> <br />
-                    <asp:Button ID="Step2" runat="server" Text="Step 2" OnClick="Step2_Click" />
+                    <asp:Button ID="Step2" runat="server" Text="Next" OnClick="Step2_Click" />
                 </asp:View>
                 <asp:View ID="PreviousCourses" runat="server">
                     <h1>Previous Courses Taken</h1>
@@ -24,12 +24,18 @@
                     <asp:CheckBoxList ID="PreviousList" runat="server" OnSelectedIndexChanged="PreviousList_SelectedIndexChanged">
 
                     </asp:CheckBoxList> <br /><br />
-                    <asp:Button ID="Step3" runat="server" Text="Step3" OnClick="Step3_Click" />
+                    <asp:Button ID="Step3" runat="server" Text="Next" OnClick="Step3_Click" />
                 </asp:View>
                 <asp:View ID="SaveProfile" runat="server">
                     <h1>Summary</h1>
                     <h3>Review Profile. Click submit when finished.</h3>
-                    <asp:Button ID="Submit" runat="server" Text="Submit" />
+                    <asp:Label ID="Label1" runat="server" Text="Curriculum: "></asp:Label>
+                    <asp:TextBox ID="txt_curriculum" runat="server"></asp:TextBox>
+                    <br />
+                    <asp:Label ID="Label2" runat="server" Text="Previous Classes Chosen: "></asp:Label>
+                    <asp:TextBox ID="txt_previous" runat="server" Height="58px" Width="274px"></asp:TextBox> 
+                    <br />
+                    <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click" />
                 </asp:View>
             </asp:MultiView>
         </div>
