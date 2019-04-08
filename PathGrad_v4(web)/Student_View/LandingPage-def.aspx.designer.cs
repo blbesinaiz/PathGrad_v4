@@ -10,7 +10,16 @@
 namespace PathGrad_v4_web_.Student_View {
     
     
-    public partial class LandingPage1 {
+    public partial class LandingPage {
+        
+        /// <summary>
+        /// Chart1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.DataVisualization.Charting.Chart Chart1;
         
         /// <summary>
         /// Txt_ExpectedGradauation control.
@@ -67,6 +76,15 @@ namespace PathGrad_v4_web_.Student_View {
         protected global::System.Web.UI.WebControls.Button Butt_Alternate;
         
         /// <summary>
+        /// Panel_Profile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_Profile;
+        
+        /// <summary>
         /// Image_Profile control.
         /// </summary>
         /// <remarks>
@@ -74,6 +92,33 @@ namespace PathGrad_v4_web_.Student_View {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image_Profile;
+        
+        /// <summary>
+        /// Upload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Upload;
+        
+        /// <summary>
+        /// Delete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Delete;
+        
+        /// <summary>
+        /// StudentID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label StudentID;
         
         /// <summary>
         /// txt_ID control.
@@ -85,6 +130,15 @@ namespace PathGrad_v4_web_.Student_View {
         protected global::System.Web.UI.WebControls.TextBox txt_ID;
         
         /// <summary>
+        /// Email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Email;
+        
+        /// <summary>
         /// txt_Email control.
         /// </summary>
         /// <remarks>
@@ -92,15 +146,6 @@ namespace PathGrad_v4_web_.Student_View {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_Email;
-        
-        /// <summary>
-        /// txt_Advisor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Advisor;
         
         /// <summary>
         /// Customize control.
@@ -112,6 +157,15 @@ namespace PathGrad_v4_web_.Student_View {
         protected global::System.Web.UI.WebControls.Button Customize;
         
         /// <summary>
+        /// Panel_Roadmap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_Roadmap;
+        
+        /// <summary>
         /// Panel_Progress control.
         /// </summary>
         /// <remarks>
@@ -119,32 +173,5 @@ namespace PathGrad_v4_web_.Student_View {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Panel_Progress;
-        
-        /// <summary>
-        /// Lab_Complete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lab_Complete;
-        
-        /// <summary>
-        /// Txt_Complete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Txt_Complete;
-        
-        /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
     }
 }

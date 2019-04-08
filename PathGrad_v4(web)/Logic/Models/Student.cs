@@ -8,7 +8,7 @@ namespace PathGrad_v4_web_.Logic.Models
     public class Student1
     {
         public static int ID;
-        public static string name;
+        public static string name { get; set; } = "default";
         public static string email;
         public static string track;
         public static List<Course> courseList;

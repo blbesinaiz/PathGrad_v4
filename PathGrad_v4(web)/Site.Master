@@ -14,7 +14,11 @@
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+    <style>
+        .blacktext {
+            color: black;
+        }
+    </style>
 </head>
 <body>
     <form runat="server">
@@ -54,7 +58,32 @@
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                     </ul>
                      <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account_View/Register">Register</a></li>
+                         <li><a runat="server" ></a></li>
+                        <!-- <asp:Table ID="TableLogin" runat="server" Font-Size="Small" 
+                            Width="300" Font-Names="Palatino" BackColor="" BorderColor="" BorderWidth="" ForeColor="Snow" CellPadding="1" CellSpacing="1">
+                            <asp:TableHeaderRow runat="server" ForeColor="Snow" BackColor="" Font-Bold="true">
+                            <asp:TableHeaderCell>Student ID</asp:TableHeaderCell>
+                            <asp:TableHeaderCell>Password</asp:TableHeaderCell>
+                            <asp:TableHeaderCell></asp:TableHeaderCell>
+                            </asp:TableHeaderRow>
+                                <asp:TableRow ID="TableRow1" runat="server" BackColor="">
+                                    <asp:TableCell><asp:TextBox style="color:black;" ID="Txt_ID" runat="server"></asp:TextBox> </asp:TableCell>
+                                    <asp:TableCell><asp:TextBox style="color:black;" ID="Txt_Pass" runat="server"></asp:TextBox> </asp:TableCell>
+                                    <asp:TableCell><asp:Button style="color:green;" ID="Butt_Login" runat="server" Text="Log In" OnClick="LogIn_Click" /></asp:TableCell>
+                                </asp:TableRow>
+                                    <asp:TableRow ID="TableRow2" runat="server" BackColor="">
+                                    <asp:TableCell> 
+                                        <p class="text-danger">
+                                            <asp:Literal runat="server" ID="FailureText" />
+                                        </p>
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:HyperLink runat="server" ID="ForgotPasswordHyperLink" ViewStateMode="Disabled">Forgot Password?</asp:HyperLink>
+                                    </asp:TableCell>
+                                    <asp:TableCell></asp:TableCell>
+                                </asp:TableRow>
+                         </asp:Table> -->
+                         <asp:Label ID="StudentID" runat="server" Text="Student ID"></asp:Label>
                                 <li><a runat="server" href="~/Account_View/Login">Log in</a></li>
                      </ul>
                 </div>

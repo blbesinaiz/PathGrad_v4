@@ -14,9 +14,6 @@ namespace PathGrad_v4_web_.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Displays register link
-            RegisterHyperLink.NavigateUrl = "Register";
-
             //Displays forgot password link
             ForgotPasswordHyperLink.NavigateUrl = "Reset";
         }
@@ -34,7 +31,7 @@ namespace PathGrad_v4_web_.Account
                 //updateAttempts(userID);
 
                 //After settingup/restore session, transition to student profile page
-                Response.Redirect("~/Student_View/LandingPage.aspx");
+                Response.Redirect("~/Student_View/AlternatePaths.aspx");
             }
             else
             {
