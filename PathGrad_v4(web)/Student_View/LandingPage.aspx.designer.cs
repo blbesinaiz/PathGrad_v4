@@ -22,13 +22,13 @@ namespace PathGrad_v4_web_.Student_View {
         protected global::System.Web.UI.WebControls.TextBox Txt_ExpectedGradauation;
         
         /// <summary>
-        /// Table_CurrentCourses control.
+        /// GridView_Current control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table_CurrentCourses;
+        protected global::System.Web.UI.WebControls.GridView GridView_Current;
         
         /// <summary>
         /// Button1 control.
@@ -40,13 +40,13 @@ namespace PathGrad_v4_web_.Student_View {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// Table_NextCoureses control.
+        /// GridView_Next control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table_NextCoureses;
+        protected global::System.Web.UI.WebControls.GridView GridView_Next;
         
         /// <summary>
         /// Butt_Perfect control.
@@ -92,15 +92,6 @@ namespace PathGrad_v4_web_.Student_View {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_Email;
-        
-        /// <summary>
-        /// txt_Advisor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Advisor;
         
         /// <summary>
         /// Customize control.

@@ -31,6 +31,24 @@ namespace PathGrad_v4_web_.Student_View {
         protected global::System.Web.UI.WebControls.MultiView Initialize_MultiView;
         
         /// <summary>
+        /// Welcome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View Welcome;
+        
+        /// <summary>
+        /// Butt_Next1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Butt_Next1;
+        
+        /// <summary>
         /// Track control.
         /// </summary>
         /// <remarks>
@@ -56,6 +74,15 @@ namespace PathGrad_v4_web_.Student_View {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList TrackList;
+        
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
         /// Step2 control.

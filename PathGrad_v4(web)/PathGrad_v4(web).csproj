@@ -75,6 +75,7 @@
     </Reference>
     <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -191,7 +192,6 @@
     <Content Include="Student_View\AlternatePaths.aspx" />
     <Content Include="Student_View\CustomizePath.aspx" />
     <Content Include="Student_View\Initialize.aspx" />
-    <Content Include="Student_View\LandingPage-def.aspx" />
     <Content Include="Student_View\LandingPage.aspx" />
     <Content Include="Student_View\PerfectPath.aspx" />
     <Content Include="Student_View\What-If.aspx" />
@@ -279,13 +279,6 @@
     </Compile>
     <Compile Include="Student_View\Initialize.aspx.designer.cs">
       <DependentUpon>Initialize.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Student_View\LandingPage-def.aspx.cs">
-      <DependentUpon>LandingPage-def.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Student_View\LandingPage-def.aspx.designer.cs">
-      <DependentUpon>LandingPage-def.aspx</DependentUpon>
     </Compile>
     <Compile Include="Student_View\LandingPage.aspx.cs">
       <DependentUpon>LandingPage.aspx</DependentUpon>

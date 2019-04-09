@@ -1,4 +1,7 @@
-﻿using PathGrad_v4_web_.Logic.Models;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using Newtonsoft.Json;
+using PathGrad_v4_web_.Logic.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,16 +19,65 @@ namespace PathGrad_v4_web_.Student
         public static int year = DateTime.Now.Year;
         public static int maxCH = 0;
         public static int yearCounter = 0;
+        public static int semesterCounter = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            restoreProfile();
         }
+        public void restoreProfile()
+        {
+            Student1.ID = 0451917;
+            //Make Instance of tempStudent Object
+            tempStudent temp = new tempStudent();
 
+            //Make Connection with database
+            var conString = "mongodb://localhost:27017";
+            var Client = new MongoClient(conString);
+            var DB = Client.GetDatabase("Path_To_Grad");
+            var collection = DB.GetCollection<BsonDocument>("Student_Profiles");
+
+            //Query Database
+            var filter = new BsonDocument
+            {
+                {"_id", Student1.ID}
+            };
+            List<MongoDB.Bson.BsonDocument> list = collection.Find(filter).ToList();
+
+            //Deserealize
+            var holder = list[0]["profile"].ToString();
+            temp = JsonConvert.DeserializeObject<tempStudent>(holder);
+
+            //Reasign to Student in program
+            //Profile Information
+            Student1.ID = temp.tempID;
+            Student1.name = temp.tempName;
+            Student1.email = temp.tempEmail;
+            Student1.Initial_Login = temp.tempInitial_Login;
+            Student1.track = temp.tempTrack;
+            Student1.advisor = temp.tempAdvisor;
+
+            //Course Lists
+            Student1.courseList = temp.tempCourseList;
+            Student1.takenCourses = temp.tempTakenCourses;
+            Student1.currentSemester = temp.tempCurrentSemester;
+            Student1.nextSemester = temp.tempNextSemester;
+
+            //Calculations
+            Student1.GPA = temp.GPA;
+            Student1.chCompleted = temp.chCompleted;
+            Student1.chRemaining = temp.chRemaining;
+            Student1.ranking = temp.ranking;
+            Student1.expectedGradutation = temp.expectedGradutation;
+        }
         protected void Butt_Generate_Click(object sender, EventArgs e)
         {
+            string myPath;
+
             maxCH = Convert.ToInt32(txt_maxCH.Text);
-            txt_Path.Text = Generate_Perfect();
+            myPath = Generate_Perfect();
+            myPath = myPath.Replace("\n", Environment.NewLine);
+            txt_Path.Text = myPath;
         }
 
         public static string Generate_Perfect()
@@ -81,6 +133,9 @@ namespace PathGrad_v4_web_.Student
                 Console.WriteLine("\n{0} {1}", currentSemester, year);
                 Console.WriteLine("--------------");
 
+                //Save expected semester
+                Student1.expectedGradutation = currentSemester + " " + year;
+
                 foreach (var Course in Student1.courseList)
                 {
                     //if ((Course.assigned == false) && (Constraints.Check_Constraints(Course) == true))
@@ -134,6 +189,8 @@ namespace PathGrad_v4_web_.Student
             //If Course is offered in fall or any other semester
             if ((currentSemester == "Fall") && (c.offered == "FO" || c.offered == "FS" || c.offered == "E" || c.offered == "EE" || c.offered == "SI" || c.offered == "O"))
             {
+                if(semesterCounter == 1)
+
                 Console.WriteLine("{0} {1}  {2}", c.charac, c.num, c.ch);
             }
 
@@ -145,13 +202,13 @@ namespace PathGrad_v4_web_.Student
 
         public static void Save_Path()
         {
-            Console.WriteLine("Press any key");
+            /*Console.WriteLine("Press any key");
             Console.ReadKey();
             var originalConsoleOut = Console.Out; // preserve the original stream
 
             string savedPath = originalConsoleOut.ToString();
 
-            Console.WriteLine(originalConsoleOut);
+            Console.WriteLine(originalConsoleOut);*/
         }
     }
 }

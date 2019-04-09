@@ -5,7 +5,7 @@
  <!-- Open Settings popup window!! -->
     <script type ="text/javascript">
         function OpenNewWindow() {
-            window.open("Initialize.aspx","mywindow","location=100,status=1,scrollbars=1,width=500,height=500");
+            window.open("CustomizePath.aspx","mywindow","location=100,status=1,scrollbars=1,width=1000,height=1000");
         }
     </script>
 
@@ -22,14 +22,16 @@
         <div class="col-md-6">
             <h2>Courses Being Taken</h2>
             <h3>Courses Taken Table</h3>
-            <asp:Table ID="Table_CurrentCourses" runat="server"></asp:Table>
+            <asp:GridView ID="GridView_Current" runat="server"></asp:GridView>
             <asp:Button ID="Button1" runat="server" OnClientClick="OpenNewWindow();" Text="Customize Path" />
         </div>
         <div class="col-md-6">
             <h2>Next Semester's Courses</h2>
-            <h3>Next Semester's Courses Table</h3>
-            <asp:Table ID="Table_NextCoureses" runat="server"></asp:Table>
-            <asp:Button ID="Butt_Perfect" runat="server" Text="Perfect Path" />
+            <h3>Next Semester's Courses Table</h3> 
+            <div style="width: 600px; height: 400px; overflow: auto;"><br /><br />
+                <asp:GridView ID="GridView_Next" runat="server"></asp:GridView>
+            </div>
+            <asp:Button ID="Butt_Perfect" runat="server" Text="Generate Perfect Path" OnClick="Butt_Perfect_Click" />
             <asp:Button ID="Butt_Alternate" runat="server" Text="Alternate Path" />
         </div>
     </div>
@@ -42,8 +44,7 @@
                 
             </div>
                 <asp:TextBox ID="txt_ID" runat="server" Text="Student ID"></asp:TextBox> <br/>
-                <asp:TextBox ID="txt_Email" runat="server" Text="Student Email"></asp:TextBox> <br/>
-                <asp:TextBox ID="txt_Advisor" runat="server" Text="Advisor"></asp:TextBox> <br/>
+                <asp:TextBox ID="txt_Email" runat="server" Text="Student Email"></asp:TextBox> <br />
                 <!--<asp:Button ID="Customize" runat="server" OnClientClick="OpenNewWindow();" Text="Customize" /> -->
         </div>
         <div class="col-md-6">

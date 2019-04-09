@@ -16,10 +16,12 @@ namespace PathGrad_v4_web_.Account
         {
             //Displays forgot password link
             ForgotPasswordHyperLink.NavigateUrl = "Reset";
+
         }
 
         protected void LogIn(object sender, EventArgs e)
         {
+            //Obtain Login Info
             int userID = Convert.ToInt32(txt_ID.Text);
             string userPassword = txt_Password.Text;
 
@@ -28,10 +30,9 @@ namespace PathGrad_v4_web_.Account
             {
                 //Initialize Session with Student Values
                 Student1.ID = userID;
-                //updateAttempts(userID);
 
                 //After settingup/restore session, transition to student profile page
-                Response.Redirect("~/Student_View/AlternatePaths.aspx");
+                Response.Redirect("~/Student_View/LandingPage.aspx");
             }
             else
             {
@@ -71,48 +72,5 @@ namespace PathGrad_v4_web_.Account
                 success = false;
             return success;
         }
-        /*
-        //Function determines if intial login
-        //If initial, then initialize student profile
-        //If not, update login attempt and restore session
-        public static void updateAttempts(int ID)
-        {
-            //Make a connection with DB for Login collection
-            var conString = "mongodb://localhost:27017";
-            var Client = new MongoClient(conString);
-            var DB = Client.GetDatabase("Path_To_Grad");
-            var collection = DB.GetCollection<BsonDocument>("Login");
-
-
-            var filter = new BsonDocument
-            {
-                {"_id", ID},
-                {"Initial_Login", 1}
-            };
-
-            //Search for desired elements
-            List<MongoDB.Bson.BsonDocument> list = collection.Find(filter).ToList();
-            if (list.Count == 1)
-            {
-                //Initialize Account
-                Console.Clear();
-                Initialize.setupProfile();
-
-                //Take off initial login
-                string param = "{$set: { 'Initial_Login' : '0' } }";
-                string filter2 = "{ '_id' : " + ID + " }";
-
-                BsonDocument filterDoc = BsonDocument.Parse(filter2);
-                BsonDocument document = BsonDocument.Parse(param);
-                collection.UpdateOne(filterDoc, document);
-
-            }
-            else
-            {
-                //Restore Account
-                db.restoreSession();
-
-            }
-            */
     }
 }

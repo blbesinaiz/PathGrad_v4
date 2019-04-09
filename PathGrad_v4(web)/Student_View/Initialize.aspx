@@ -10,12 +10,19 @@
     <form id="form1" runat="server">
         <div>
             <asp:MultiView ID="Initialize_MultiView" runat="server">
+                 <asp:View ID="Welcome" runat="server">
+                    <h1> Welcome to Path to Grad</h1>
+                    <h2> Let's Begin by Setting up Your Account</h2>
+                     <asp:Button ID="Butt_Next1" runat="server" Text="Next" OnClick="Butt_Next1_Click" />
+                </asp:View>
                 <asp:View ID="Track" runat="server">
                     <h1> Setup Curriculum Track</h1>
                     <asp:Label ID="CurriculumTrack" runat="server" Text="Curriculum Track"></asp:Label>
                     <asp:DropDownList ID="TrackList" runat="server">
                         <asp:ListItem>BS.CSC.IA</asp:ListItem>
-                    </asp:DropDownList> <br />
+                    </asp:DropDownList> 
+                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
+                    <br />
                     <asp:Button ID="Step2" runat="server" Text="Next" OnClick="Step2_Click" />
                 </asp:View>
                 <asp:View ID="PreviousCourses" runat="server">
@@ -33,7 +40,7 @@
                     <asp:TextBox ID="txt_curriculum" runat="server"></asp:TextBox>
                     <br />
                     <asp:Label ID="Label2" runat="server" Text="Previous Classes Chosen: "></asp:Label>
-                    <asp:TextBox ID="txt_previous" runat="server" Height="58px" Width="274px"></asp:TextBox> 
+                    <asp:TextBox ID="txt_previous" runat="server" Height="58px" Width="274px">No classes selected</asp:TextBox> 
                     <br />
                     <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click" />
                 </asp:View>

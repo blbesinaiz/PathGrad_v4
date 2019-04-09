@@ -17,9 +17,11 @@ namespace PathGrad_v4_web_.Logic.Models
         public string offered { get; set; }          //FO (Fall Only), SO (Spring Only), E (Each Semester),
                                                      //EE (Each Semester, excludes summber), FS (Fall/Summer Only),
                                                      //SI (Sufficient Student Interest), O (Offered every other year)
+        public float grade { get; set; }
         public bool assigned { get; set; } = false;          //Keeps track if assigned to fall or spring list
         public bool prerequSatisfied { get; set; }
         public bool completed { get; set; } = false;
+
 
         public static Course FromCsv(string csvLine)
         {
