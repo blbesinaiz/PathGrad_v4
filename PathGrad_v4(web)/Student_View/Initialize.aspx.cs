@@ -175,8 +175,6 @@ namespace PathGrad_v4_web_.Student_View
 
             //Close Window
             ClientScript.RegisterStartupScript(typeof(Page), "closePage", "window.close();", true);
-
-
         }
 
         protected void GeneratePath()

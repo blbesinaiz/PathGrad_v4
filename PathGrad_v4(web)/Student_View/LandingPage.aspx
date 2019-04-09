@@ -5,7 +5,7 @@
  <!-- Open Settings popup window!! -->
     <script type ="text/javascript">
         function OpenNewWindow() {
-            window.open("CustomizePath.aspx","mywindow","location=100,status=1,scrollbars=1,width=1000,height=1000");
+            window.open("CustomizePath.aspx","mywindow","location=300,status=1,scrollbars=1,width=1000,height=700");
         }
     </script>
 
@@ -17,20 +17,24 @@
      </div>
     <div class="row">
         <center>
-            <h1 style=<strong>Your Perfect Path</strong></h1>
+            <h1 style="text-decoration: underline"><strong>Your Pefect Path:</strong></h1>
         </center>
         <div class="col-md-6">
-            <h2>Courses Being Taken</h2>
-            <h3>Courses Taken Table</h3>
-            <asp:GridView ID="GridView_Current" runat="server"></asp:GridView>
+            <h2><em>Courses in Progress</em></h2>
+            <asp:Panel ID="Panel_Current" runat="server" BackImageUrl="~/Images/No_Data-512.png" Height="300px" Width="500px">
+                <asp:GridView ID="GridView_Current" runat="server" BackColor="White" Width="500px"></asp:GridView>
+                <br /><br />
+            </asp:Panel>
+            <br /><br />
             <asp:Button ID="Button1" runat="server" OnClientClick="OpenNewWindow();" Text="Customize Path" />
         </div>
         <div class="col-md-6">
-            <h2>Next Semester's Courses</h2>
-            <h3>Next Semester's Courses Table</h3> 
-            <div style="width: 600px; height: 400px; overflow: auto;"><br /><br />
-                <asp:GridView ID="GridView_Next" runat="server"></asp:GridView>
-            </div>
+            <h2><em>Next Semester's Coureses</em></h2>
+            <asp:Panel ID="Panel_Next" runat="server" BackImageUrl="~/Images/No_Data-512.png" Height="300px" Width="500px">
+                <asp:GridView ID="GridView_Next" runat="server" BackColor="White" Width="500px"></asp:GridView>
+                <br /><br />
+            </asp:Panel>
+            <br /><br />
             <asp:Button ID="Butt_Perfect" runat="server" Text="Generate Perfect Path" OnClick="Butt_Perfect_Click" />
             <asp:Button ID="Butt_Alternate" runat="server" Text="Alternate Path" />
         </div>
@@ -51,7 +55,7 @@
             <h3>Current Roadmap</h3>
             <asp:Image ID="Panel_Progress" runat="server" ImageUrl="~/Images/4 - Roadmap FINAL - Chart.png" width="350px" style="padding-right: 15px; padding-top: 20px;" Height="125px"/><br><br />
             <asp:Label ID="Lab_Complete" runat="server" Text="Degree Complete: "></asp:Label>
-            <asp:TextBox ID="Txt_Complete" runat="server" Text=" "></asp:TextBox>
+            <asp:TextBox ID="Txt_Complete" runat="server" Text=" " Width="54px"></asp:TextBox>
             <asp:Label ID="Label1" runat="server" Text="%"></asp:Label>
         </div>
     </div>

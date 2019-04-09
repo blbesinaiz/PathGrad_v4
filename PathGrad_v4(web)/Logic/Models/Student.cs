@@ -5,7 +5,7 @@ using System.Web;
 
 namespace PathGrad_v4_web_.Logic.Models
 {
-    public class Student1
+    public static class Student1
     {
         //Profile Information
         public static int ID { get; set; } = 0;
@@ -18,8 +18,8 @@ namespace PathGrad_v4_web_.Logic.Models
         //List of classes
         public static List<Course> courseList;
         public static List<Course> takenCourses;
-        public static List<Course> currentSemester;
-        public static List<Course> nextSemester;
+        public static List<Course> currentSemester { get; set; }
+        public static List<Course> nextSemester { get; set; }
 
         //Calculations
         public static float GPA { get; set; } = 0;

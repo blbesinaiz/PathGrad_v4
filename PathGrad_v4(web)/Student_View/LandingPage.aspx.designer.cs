@@ -22,6 +22,15 @@ namespace PathGrad_v4_web_.Student_View {
         protected global::System.Web.UI.WebControls.TextBox Txt_ExpectedGradauation;
         
         /// <summary>
+        /// Panel_Current control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_Current;
+        
+        /// <summary>
         /// GridView_Current control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,15 @@ namespace PathGrad_v4_web_.Student_View {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// Panel_Next control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_Next;
         
         /// <summary>
         /// GridView_Next control.

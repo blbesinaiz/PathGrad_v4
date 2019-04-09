@@ -50,23 +50,18 @@
                   <asp:TextBox ID="TextBox2" runat="server">Confirm Password</asp:TextBox> <br />
                   <asp:Button ID="Butt_Submit" runat="server" Text="Submit" /><br />
               </div>
-          <div id="tabs-2">
-            <p> Search by sequence for class previosuly taken: </p>
-              <asp:TextBox ID="Txt_Search" runat="server">Search</asp:TextBox>
-              <asp:ListBox ID="ListBox_Search" runat="server">
+          </div>
+          <div id="tabs-2">              
+              <asp:TextBox ID="Txt_Search" runat="server" Width="286px" Height="33px">Search</asp:TextBox>
+              <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/search.png" Height="36px" style="margin-right: 0px" Width="52px" />
+              <br /><br />
+              <asp:ListBox ID="ListBox_Search" runat="server" Width="350px">
                   <asp:ListItem>No Results</asp:ListItem>
               </asp:ListBox>
-            <p> Table of Classes Previously Taken</p>
-              <asp:GridView ID="GridView1" HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White"
-                    runat="server" AutoGenerateColumns="false">
-                    <Columns>
-                        <asp:BoundField DataField="Id" HeaderText="Id" ItemStyle-Width="30" />
-                        <asp:BoundField DataField="Name" HeaderText="Name" ItemStyle-Width="150" />
-                        <asp:BoundField DataField="Country" HeaderText="Country" ItemStyle-Width="150" />
-                    </Columns>
-                </asp:GridView>
-              <asp:GridView ID="GridView_Previous" runat="server" Width="332px">
-              </asp:GridView>
+              <h3>Courses Previously Taken</h3>
+              <asp:Panel ID="Panel_Taken" runat="server" ScrollBars="Vertical" Height="300" Width="500">
+                    <asp:GridView ID="GridView_Previous" runat="server" Width="500px" BackColor="White"></asp:GridView>
+              </asp:Panel>
           </div>
           <div id="tabs-3">
             <p> Path Customization Content</p>
@@ -76,7 +71,28 @@
             </div>
           </div>
           <div id="tabs-4">
-            <p> Contact Advisor Content</p>
+            <h3> Contact Advisor Content</h3>
+              <asp:Label ID="Label1" runat="server" Text="From:"></asp:Label>
+              <asp:TextBox ID="TextBox3" runat="server" Width="230px">LAST NAME, FIRST NAME</asp:TextBox><br /><br />
+              <asp:Label ID="Label2" runat="server" Text="   To:"></asp:Label>
+              <asp:TextBox ID="TextBox4" runat="server" Width="230px" style="margin-left: 23px">LAST NAME, FIRST NAME</asp:TextBox>
+              <br /><br />
+              <asp:TextBox ID="TextBox5" runat="server" Height="30px" Width="488px">Subject</asp:TextBox><br /><br />
+              <asp:TextBox ID="TextBox6" runat="server" Height="155px" Width="484px">Type Message Here</asp:TextBox><br /><br />
+              
+              <asp:CheckBox ID="CheckBox1" runat="server" />
+              <asp:Label ID="Label3" runat="server" Text="Label">Send me a copy</asp:Label>
+              <asp:Button ID="Button1" runat="server" Text="Save as Draft" />
+              <asp:Button ID="Button2" runat="server" Text="Send!" /><br /><br />
+
+              <asp:ListBox ID="ListBox1" runat="server" Width="490px">
+                  <asp:ListItem>DRAFTS</asp:ListItem>
+                  <asp:ListItem>(no subject)</asp:ListItem>
+                  <asp:ListItem>Hello, Dr.Graham</asp:ListItem>
+                  <asp:ListItem>Fall Semester 2019</asp:ListItem>
+                  <asp:ListItem>Forensics Project</asp:ListItem>
+
+              </asp:ListBox>
           </div>
         </div>
     </form>

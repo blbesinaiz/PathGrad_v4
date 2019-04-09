@@ -20,6 +20,11 @@ namespace PathGrad_v4_web_.Student
         public static int maxCH = 0;
         public static int yearCounter = 0;
         public static int semesterCounter = 0;
+        public static List<Course> currentList = new List<Course>();
+        public static List<Course> nextList = new List<Course>();
+        public static List<List<string>> perfectList = new List<List<string>>();
+        public static int index = 0;
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -72,12 +77,19 @@ namespace PathGrad_v4_web_.Student
         }
         protected void Butt_Generate_Click(object sender, EventArgs e)
         {
-            string myPath;
-
+            //Take in Max CH per semester
             maxCH = Convert.ToInt32(txt_maxCH.Text);
-            myPath = Generate_Perfect();
-            myPath = myPath.Replace("\n", Environment.NewLine);
-            txt_Path.Text = myPath;
+
+            //Generate perfect path
+            Generate_Perfect();
+
+            //Make visible expected graduation
+            Label_Graduation.Visible = true;
+            Txt_Graduation.Text = Student1.expectedGradutation;
+            Txt_Graduation.Visible = true;
+
+            //Populate listboxes
+            popluateListbox();
         }
 
         public static string Generate_Perfect()
@@ -105,7 +117,9 @@ namespace PathGrad_v4_web_.Student
 
             Console.SetOut(originalConsoleOut); // restore Console.Out
 
-          
+            //Save semester lists
+            Student1.currentSemester = currentList;
+            Student1.nextSemester = nextList;
 
             //Save Path Generation
             Save_Path();
@@ -121,17 +135,16 @@ namespace PathGrad_v4_web_.Student
 
         public static void Group_By_Semester()
         {
-
-
             //every console write needs to be saved to stream string
             int creditCounter = 0;
-
+            
             //While all assigned = false
             while (checkAssigned() == false)
             {
                 //Output Starting Semester
-                Console.WriteLine("\n{0} {1}", currentSemester, year);
-                Console.WriteLine("--------------");
+                //Console.WriteLine("\n{0} {1}", currentSemester, year);
+                //Console.WriteLine("--------------");
+                perfectList[index].Add(currentSemester + " " + year);
 
                 //Save expected semester
                 Student1.expectedGradutation = currentSemester + " " + year;
@@ -150,11 +163,14 @@ namespace PathGrad_v4_web_.Student
                         break;
                 }
 
-                Console.WriteLine("Credit Total: {0}", creditCounter);
+                //Console.WriteLine("Credit Total: {0}", creditCounter);
+                perfectList[index].Add("Credit Total: " + creditCounter);
 
                 //Reset/Update Values
                 creditCounter = 0;
                 yearCounter++;
+                semesterCounter++;
+                index++;
 
                 if (currentSemester == "Fall")
                     currentSemester = "Spring";
@@ -189,15 +205,38 @@ namespace PathGrad_v4_web_.Student
             //If Course is offered in fall or any other semester
             if ((currentSemester == "Fall") && (c.offered == "FO" || c.offered == "FS" || c.offered == "E" || c.offered == "EE" || c.offered == "SI" || c.offered == "O"))
             {
-                if(semesterCounter == 1)
 
+                perfectList[index].Add(c.charac + " " + c.num + c.ch);
                 Console.WriteLine("{0} {1}  {2}", c.charac, c.num, c.ch);
             }
 
             else if ((currentSemester == "Spring") && (c.offered == "SO" || c.offered == "E" || c.offered == "EE" || c.offered == "SI" || c.offered == "O"))
             {
+                perfectList[index].Add(c.charac + " " + c.num + c.ch);
                 Console.WriteLine("{0} {1}  {2}", c.charac, c.num, c.ch);
             }
+
+            //Add to current or next semester list
+            if (semesterCounter == 0)
+            {
+                currentList.Add(c);
+            }
+            else if(semesterCounter == 1)
+            {
+                nextList.Add(c);
+            }
+        }
+
+        public void popluateListbox()
+        {
+            ListBox_Fresh1.DataSource = perfectList[0];
+            ListBox_Fresh2.DataSource = perfectList[1];
+            ListBox_Soph1.DataSource = perfectList[2];
+            ListBox_Soph2.DataSource = perfectList[3];
+            ListBox_Jun1.DataSource = perfectList[4];
+            ListBox_Jun2.DataSource = perfectList[5];
+            ListBox_Sen1.DataSource = perfectList[6];
+            ListBox_Sen2.DataSource = perfectList[7];
         }
 
         public static void Save_Path()

@@ -61,17 +61,20 @@ namespace PathGrad_v4_web_.Student_View
             DataRow row = dtCurrent.NewRow();
 
             string courseName;
+            bool taken = false;
             //Loop through courses for CURRENT semester and add
-            foreach(var Course in Student1.courseList)
+            foreach (var Course in Student1.courseList)
             {
                 //Add to row
-                courseName = Course.num + Course.lab;
-                dtCurrent.Rows.Add(false, courseName, Course.title, Course.ch);
+                courseName = Course.charac + " " + Course.num + Course.lab;
+                if (Course.completed == true)
+                    taken = true;
+                else taken = false;
+                dtCurrent.Rows.Add(taken, courseName, Course.title, Course.ch);
                 //Bind to Grid
                 GridView_Previous.DataSource = dtCurrent;
                 GridView_Previous.DataBind();
             }
-            dtCurrent.Rows.Add(false, "CSC 101", "Computer Science Intro", 1);
             GridView_Previous.DataSource = dtCurrent;
             GridView_Previous.DataBind();
         }

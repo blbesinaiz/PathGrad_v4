@@ -21,7 +21,7 @@ namespace PathGrad_v4_web_.Student_View
             if(Student1.ID == 0)
             {
                 Student1.ID = 0451917;
-                Student1.Initial_Login = 0;
+                Student1.Initial_Login = 1;
             }
             if (Student1.Initial_Login == 1)
             {
@@ -110,27 +110,32 @@ namespace PathGrad_v4_web_.Student_View
 
         public void DataGrid_CurrentPopulate()
         {
+            int courseCounter = 1;
+            string courseNum;
             //Create data table object
             DataTable dtCurrent = new DataTable();
 
             //Add columns
-            dtCurrent.Columns.Add("IsMarried", typeof(bool));
+            dtCurrent.Columns.Add("No.", typeof(int));
             dtCurrent.Columns.Add("Course Number", typeof(string));
             dtCurrent.Columns.Add("Course Name", typeof(string));
             dtCurrent.Columns.Add("Credit Hours", typeof(int));
 
-           /* DataGridViewCheckBoxColumn dgvCmb = new DataGridViewCheckBoxColumn();
-            dgvCmb.ValueType = typeof(bool);
-            dgvCmb.Name = "Chk";
-            dgvCmb.HeaderText = "CheckBox";
-            GridView_Current.Columns.Add(dgvCmb);*/
-
             //Create row object
             DataRow row = dtCurrent.NewRow();
-
-            //Loop through courses for CURRENT semester and add
-            dtCurrent.Rows.Add(false, "CSC 101", "Computer Science Intro", 1);
-
+            
+            if(Student1.currentSemester != null )
+            {
+                foreach(var Course in Student1.currentSemester)
+                {
+                    courseNum = Course.charac + " " + Course.num + Course.lab;
+                    //Loop through courses for CURRENT semester and add
+                    dtCurrent.Rows.Add(courseCounter, courseNum, Course.title, Course.ch);
+                    courseCounter++;
+                }
+                   
+            }
+            
             //Bind to database
             GridView_Current.DataSource = dtCurrent;
             GridView_Current.DataBind();
@@ -138,28 +143,36 @@ namespace PathGrad_v4_web_.Student_View
 
         public void DataGrid_NextPopulate()
         {
-            /*
+            int courseCounter = 1;
+            string courseNum;
             //Create data table object
-            DataTable dt = new DataTable();
+            DataTable dtCurrent = new DataTable();
 
             //Add columns
-            dt.Columns.Add("Course Number");
-            dt.Columns.Add("Name");
-            dt.Columns.Add("Credit Hours");
+            dtCurrent.Columns.Add("No.", typeof(int));
+            dtCurrent.Columns.Add("Course Number", typeof(string));
+            dtCurrent.Columns.Add("Course Name", typeof(string));
+            dtCurrent.Columns.Add("Credit Hours", typeof(int));
 
             //Create row object
-            DataRow row = dt.NewRow();
+            DataRow row = dtCurrent.NewRow();
 
-            //fill rows
-            //For loop that goes through NEXT semester list
-            row["Course Number"] = "CSC 101";
-            dt.Rows.Add(row);
-            //dt.Rows.InsertAt(row, index);     //if you want a specific position
+            if (Student1.nextSemester != null)
+            {
+                foreach (var Course in Student1.nextSemester)
+                {
+                    courseNum = Course.charac + " " + Course.num + Course.lab;
+                    //Loop through courses for CURRENT semester and add
+                    dtCurrent.Rows.Add(courseCounter, courseNum, Course.title, Course.ch);
+                    courseCounter++;
+
+                }
+
+            }
 
             //Bind to database
-            GridView_Current.DataSource = dt;
-            GridView_Current.DataBind();
-            */
+            GridView_Next.DataSource = dtCurrent;
+            GridView_Next.DataBind();
         }
 
         protected void Butt_Perfect_Click(object sender, EventArgs e)
