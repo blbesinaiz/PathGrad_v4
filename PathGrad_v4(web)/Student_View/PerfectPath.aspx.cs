@@ -87,12 +87,13 @@ namespace PathGrad_v4_web_.Student
             Label_Graduation.Visible = true;
             Txt_Graduation.Text = Student1.expectedGradutation;
             Txt_Graduation.Visible = true;
+            ListBox_Path.Visible = true;
 
             //Populate listboxes
-            popluateListbox();
+            //popluateListbox();
         }
 
-        public static string Generate_Perfect()
+        public string Generate_Perfect()
         {
             string pathString = "";
             //Get Student Input
@@ -100,22 +101,9 @@ namespace PathGrad_v4_web_.Student
             //Sort by Ascending Order
             Sort_By_Ascending();
 
-            var originalConsoleOut = Console.Out; // preserve the original stream
-            using (var writer = new StringWriter())
-            {
-                Console.SetOut(writer);
-
-                //Group and Print By Semester
-                Group_By_Semester();
-
-                //Console.WriteLine("some stuff"); // or make your DLL calls :)
-
-                writer.Flush(); // when you're done, make sure everything is written out
-
-                pathString = writer.GetStringBuilder().ToString();
-            }
-
-            Console.SetOut(originalConsoleOut); // restore Console.Out
+            
+            //Group and Print By Semester
+            Group_By_Semester();
 
             //Save semester lists
             Student1.currentSemester = currentList;
@@ -133,7 +121,7 @@ namespace PathGrad_v4_web_.Student
             Student1.courseList.Sort((s1, s2) => s1.num.CompareTo(s2.num));
         }
 
-        public static void Group_By_Semester()
+        public void Group_By_Semester()
         {
             //every console write needs to be saved to stream string
             int creditCounter = 0;
@@ -141,10 +129,9 @@ namespace PathGrad_v4_web_.Student
             //While all assigned = false
             while (checkAssigned() == false)
             {
-                //Output Starting Semester
-                //Console.WriteLine("\n{0} {1}", currentSemester, year);
-                //Console.WriteLine("--------------");
-                perfectList[index].Add(currentSemester + " " + year);
+                
+                ListBox_Path.Items.Add(currentSemester + " " + year);
+                ListBox_Path.Items.Add("--------------");
 
                 //Save expected semester
                 Student1.expectedGradutation = currentSemester + " " + year;
@@ -164,7 +151,10 @@ namespace PathGrad_v4_web_.Student
                 }
 
                 //Console.WriteLine("Credit Total: {0}", creditCounter);
-                perfectList[index].Add("Credit Total: " + creditCounter);
+                //perfectList[index].Add("Credit Total: " + creditCounter);
+                ListBox_Path.Items.Add("Credit Total: " + creditCounter);
+                ListBox_Path.Items.Add(" ");
+                ListBox_Path.Items.Add(" ");
 
                 //Reset/Update Values
                 creditCounter = 0;
@@ -200,19 +190,21 @@ namespace PathGrad_v4_web_.Student
             return allAssigned;
         }
 
-        public static void Section_Semester(Course c)
+        public void Section_Semester(Course c)
         {
             //If Course is offered in fall or any other semester
             if ((currentSemester == "Fall") && (c.offered == "FO" || c.offered == "FS" || c.offered == "E" || c.offered == "EE" || c.offered == "SI" || c.offered == "O"))
             {
 
-                perfectList[index].Add(c.charac + " " + c.num + c.ch);
+                //perfectList[index].Add(c.charac + " " + c.num + c.ch);
+                ListBox_Path.Items.Add(c.charac + " " + c.num + "    " + c.ch);
                 Console.WriteLine("{0} {1}  {2}", c.charac, c.num, c.ch);
             }
 
             else if ((currentSemester == "Spring") && (c.offered == "SO" || c.offered == "E" || c.offered == "EE" || c.offered == "SI" || c.offered == "O"))
             {
-                perfectList[index].Add(c.charac + " " + c.num + c.ch);
+                //perfectList[index].Add(c.charac + " " + c.num + c.ch);
+                ListBox_Path.Items.Add(c.charac + " " + c.num + "    " + c.ch);
                 Console.WriteLine("{0} {1}  {2}", c.charac, c.num, c.ch);
             }
 
@@ -229,18 +221,23 @@ namespace PathGrad_v4_web_.Student
 
         public void popluateListbox()
         {
-            ListBox_Fresh1.DataSource = perfectList[0];
-            ListBox_Fresh2.DataSource = perfectList[1];
+            //ListBox_Fresh1.DataSource = perfectList[0];
+
+            /*ListBox_Fresh2.DataSource = perfectList[1];
             ListBox_Soph1.DataSource = perfectList[2];
             ListBox_Soph2.DataSource = perfectList[3];
             ListBox_Jun1.DataSource = perfectList[4];
             ListBox_Jun2.DataSource = perfectList[5];
             ListBox_Sen1.DataSource = perfectList[6];
-            ListBox_Sen2.DataSource = perfectList[7];
+            ListBox_Sen2.DataSource = perfectList[7];*/
         }
 
         public static void Save_Path()
         {
+            //Save perfect path to student
+            
+
+            //update database
             /*Console.WriteLine("Press any key");
             Console.ReadKey();
             var originalConsoleOut = Console.Out; // preserve the original stream

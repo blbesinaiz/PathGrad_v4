@@ -100,8 +100,8 @@ namespace PathGrad_v4_web_.Student_View
 
         public void setFormValues()
         {
-            txt_ID.Text = Student1.ID.ToString();
-            txt_Email.Text = Student1.email;
+            txt_ID.Text = "Student ID: " + Student1.ID.ToString();
+            txt_Email.Text = "Student Email: " + Student1.email;
             Txt_ExpectedGradauation.Text = Student1.expectedGradutation;
 
             DataGrid_CurrentPopulate();

@@ -50,8 +50,6 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/Student_View/PerfectPath">Perfect Path</a></li>
-                        <li><a runat="server" href="~/Student_View/AlternatePaths">Alternate Paths</a></li>
                         <li><a runat="server" href="~/Student_View/What-IF">What-If Central</a></li>
                     </ul>
                      <ul class="nav navbar-nav navbar-right">

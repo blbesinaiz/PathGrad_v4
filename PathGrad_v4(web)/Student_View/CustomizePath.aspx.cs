@@ -28,8 +28,8 @@ namespace PathGrad_v4_web_.Student_View
 
         public void setupProfile()
         {
-            Txt_name.Text = Student1.name;
-            Txt_ID.Text = Student1.ID.ToString();
+            Txt_name.Text = "Name: " + Student1.name;
+            Txt_ID.Text = "Student ID: " + Student1.ID.ToString();
 
             //Determine Status
             if (Student1.chCompleted > 0 && Student1.chCompleted < 29)
@@ -41,9 +41,9 @@ namespace PathGrad_v4_web_.Student_View
             else if (Student1.chCompleted > 89)
                 Student1.ranking = "Senior";
 
-            Txt_classification.Text = Student1.ranking;
-            Txt_graduation.Text = Student1.expectedGradutation;
-            Txt_advisor.Text = Student1.advisor;
+            Txt_classification.Text = "Classification: " + Student1.ranking;
+            Txt_graduation.Text = "Epected Graduation: " + Student1.expectedGradutation;
+            Txt_advisor.Text = "Advisor: " + Student1.advisor;
         }
 
         public void setupPreviousClasses()

@@ -21,7 +21,6 @@
           <ul>
             <li><a href="#tabs-1">User Profile</a></li>
             <li><a href="#tabs-2">The Road So Far</a></li>
-            <li><a href="#tabs-3">Path Customization</a></li>
             <li><a href="#tabs-4">Contact Advisor</a></li>
           </ul>
           <div id="tabs-1">
@@ -38,16 +37,16 @@
               </div>
               <h2>Account Info</h2>
               <div class="row">
-                  <asp:TextBox ID="Txt_name" runat="server">Name</asp:TextBox> <br />
-                  <asp:TextBox ID="Txt_ID" runat="server">Student ID Number</asp:TextBox> <br />
-                  <asp:TextBox ID="Txt_classification" runat="server">Classification</asp:TextBox><br />
-                  <asp:TextBox ID="Txt_graduation" runat="server">Expected Graduation Date</asp:TextBox><br />
-                  <asp:TextBox ID="Txt_advisor" runat="server">Advisor</asp:TextBox>
+                  <asp:TextBox ID="Txt_name" runat="server" CssClass="form-control" >Name</asp:TextBox> <br />
+                  <asp:TextBox ID="Txt_ID" runat="server" CssClass="form-control" >Student ID Number</asp:TextBox> <br />
+                  <asp:TextBox ID="Txt_classification" runat="server" CssClass="form-control" >Classification</asp:TextBox><br />
+                  <asp:TextBox ID="Txt_graduation" runat="server" CssClass="form-control" >Expected Graduation Date</asp:TextBox><br />
+                  <asp:TextBox ID="Txt_advisor" runat="server" CssClass="form-control" >Advisor</asp:TextBox>
               </div>
               <h2>Change Password</h2>
               <div class="row">
-                  <asp:TextBox ID="TextBox1" runat="server">New Password</asp:TextBox> <br />
-                  <asp:TextBox ID="TextBox2" runat="server">Confirm Password</asp:TextBox> <br />
+                  <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control">New Password</asp:TextBox> <br />
+                  <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control">Confirm Password</asp:TextBox> <br />
                   <asp:Button ID="Butt_Submit" runat="server" Text="Submit" /><br />
               </div>
           </div>
@@ -63,27 +62,20 @@
                     <asp:GridView ID="GridView_Previous" runat="server" Width="500px" BackColor="White"></asp:GridView>
               </asp:Panel>
           </div>
-          <div id="tabs-3">
-            <p> Path Customization Content</p>
-            <div class="row">
-                <h2>Current Semester</h2>
-
-            </div>
-          </div>
           <div id="tabs-4">
             <h3> Contact Advisor Content</h3>
               <asp:Label ID="Label1" runat="server" Text="From:"></asp:Label>
-              <asp:TextBox ID="TextBox3" runat="server" Width="230px">LAST NAME, FIRST NAME</asp:TextBox><br /><br />
+              <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control" Width="230px">LAST NAME, FIRST NAME</asp:TextBox><br /><br />
               <asp:Label ID="Label2" runat="server" Text="   To:"></asp:Label>
-              <asp:TextBox ID="TextBox4" runat="server" Width="230px" style="margin-left: 23px">LAST NAME, FIRST NAME</asp:TextBox>
+              <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control" Width="230px" style="margin-left: 23px">LAST NAME, FIRST NAME</asp:TextBox>
               <br /><br />
-              <asp:TextBox ID="TextBox5" runat="server" Height="30px" Width="488px">Subject</asp:TextBox><br /><br />
-              <asp:TextBox ID="TextBox6" runat="server" Height="155px" Width="484px">Type Message Here</asp:TextBox><br /><br />
+              <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control" Height="30px" Width="488px">Subject</asp:TextBox><br /><br />
+              <asp:TextBox ID="TextBox6" runat="server" CssClass="form-control" Height="155px" Width="484px">Type Message Here</asp:TextBox><br /><br />
               
               <asp:CheckBox ID="CheckBox1" runat="server" />
               <asp:Label ID="Label3" runat="server" Text="Label">Send me a copy</asp:Label>
-              <asp:Button ID="Button1" runat="server" Text="Save as Draft" />
-              <asp:Button ID="Button2" runat="server" Text="Send!" /><br /><br />
+              <asp:Button ID="Button1" runat="server" CssClass="btn btn-default" Text="Save as Draft" />
+              <asp:Button ID="Button2" runat="server" CssClass="btn btn-default" Text="Send!" /><br /><br />
 
               <asp:ListBox ID="ListBox1" runat="server" Width="490px">
                   <asp:ListItem>DRAFTS</asp:ListItem>

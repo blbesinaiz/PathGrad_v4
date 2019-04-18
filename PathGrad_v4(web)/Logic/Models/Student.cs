@@ -20,6 +20,7 @@ namespace PathGrad_v4_web_.Logic.Models
         public static List<Course> takenCourses;
         public static List<Course> currentSemester { get; set; }
         public static List<Course> nextSemester { get; set; }
+        public static List<Course> perfectPath { get; set; }
 
         //Calculations
         public static float GPA { get; set; } = 0;
