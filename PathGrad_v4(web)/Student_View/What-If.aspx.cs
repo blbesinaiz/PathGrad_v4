@@ -13,5 +13,10 @@ namespace PathGrad_v4_web_.Student_View
         {
 
         }
+
+        protected void Butt_Peek_Click(object sender, EventArgs e)
+        {
+            Panel_WhatIf.Visible = true;
+        }
     }
 }

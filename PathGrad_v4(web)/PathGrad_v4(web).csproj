@@ -157,12 +157,13 @@
     <Content Include="Images\4 - Roadmap FINAL - JuniorDone.png" />
     <Content Include="Images\4 - Roadmap FINAL - SeniorDone.png" />
     <Content Include="Images\4 - Roadmap FINAL - SophDone.png" />
-    <Content Include="Images\Grad.png" />
     <Content Include="Images\No_Data-512.png" />
-    <Content Include="Images\no_data_available.png" />
     <Content Include="Images\Path To Grad Logo.png" />
     <Content Include="Images\profile_icon.png" />
     <Content Include="Images\search.png" />
+    <Content Include="Images\under-construction.png" />
+    <Content Include="Images\What-If.JPG" />
+    <Content Include="Images\whatIF-background.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

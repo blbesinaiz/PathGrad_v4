@@ -76,15 +76,6 @@ namespace PathGrad_v4_web_.Student {
         protected global::System.Web.UI.WebControls.Panel Panel_Path;
         
         /// <summary>
-        /// Panel_Freshman control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel_Freshman;
-        
-        /// <summary>
         /// ListBox_Path control.
         /// </summary>
         /// <remarks>

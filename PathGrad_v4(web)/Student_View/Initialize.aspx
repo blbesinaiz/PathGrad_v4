@@ -4,17 +4,31 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Initialize Account</title>
+    <title>Initialize Account</title>    <asp:PlaceHolder runat="server">
+    <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <style>
+        .blacktext {
+            color: black;
+        }
+    </style>
+
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+            
+        <div class="row">
+            <center>
             <asp:MultiView ID="Initialize_MultiView" runat="server">
-                 <asp:View ID="Welcome" runat="server">
+                <asp:View ID="Welcome" runat="server">
                     <h1> Welcome to Path to Grad</h1>
                     <h2> Let's Begin by Setting up Your Account</h2>
-                     <asp:Button ID="Butt_Next1" runat="server" Text="Next"  CssClass="btn btn-default" OnClick="Butt_Next1_Click" />
+                    <asp:Button ID="Butt_Next1" runat="server" Text="Next"  CssClass="btn btn-default" OnClick="Butt_Next1_Click" />
                 </asp:View>
+                
                 <asp:View ID="Track" runat="server">
                     <h1> Setup Curriculum Track</h1>
                     <asp:Label ID="CurriculumTrack" runat="server" Text="Curriculum Track"></asp:Label>
@@ -45,6 +59,7 @@
                     <asp:Button ID="Submit" runat="server"  CssClass="btn btn-default" Text="Submit" OnClick="Submit_Click" />
                 </asp:View>
             </asp:MultiView>
+            </center>
         </div>
     </form>
 </body>
