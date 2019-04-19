@@ -1,7 +1,7 @@
 # Path To Graduation
 
 <img src="https://github.com/blbesinaiz/GradPath-web/blob/master/Path%20Grad%20v3%20(Web)/Img/Path%20To%20Grad%20Logo.png" align="right"
-     title="Size Limit logo by Anton Lovchikov" width="120" height="178">
+     title="Size Limit logo by Anton Lovchikov" width="150" height="178">
 
 Path to Graduation is a tool for NSU students to use in conjunction
 with the Program Evaulation to help aid the process of registering
