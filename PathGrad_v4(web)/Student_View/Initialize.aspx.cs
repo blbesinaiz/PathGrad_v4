@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using Newtonsoft.Json;
+using PathGrad_v4_web_.Logic.Database;
 using PathGrad_v4_web_.Logic.Models;
 using System;
 using System.Collections.Generic;
@@ -78,7 +79,7 @@ namespace PathGrad_v4_web_.Student_View
             //Make calculations and Assignments
             calculations();
             //Save to Database
-            saveDB();
+            saveInitialDB();
 
             //Close Window
             ClientScript.RegisterStartupScript(typeof(Page), "closePage", "window.close();", true);
@@ -126,15 +127,44 @@ namespace PathGrad_v4_web_.Student_View
         public static void calculations()
         {
             //Have to come back and make calculations
+
+            //Calculate CH Completed
+            foreach (var Course in Student1.courseList)
+            {
+                if (Course.completed == true)
+                {
+                    Student1.chCompleted += Course.ch;
+                }
+            }
+
+            //Calcualte Remamining
+            Student1.chRemaining = 120 - Student1.chCompleted;
+
+            //Calculate Percentage completed
+            Student1.completedPercentage = (Student1.chCompleted / 120) * 100;
+
+            //Compute Ranking
+            //Determine Status
+            if (Student1.chCompleted >= 0 && Student1.chCompleted < 29)
+                Student1.ranking = "Freshman";
+            else if (Student1.chCompleted > 29 && Student1.chCompleted < 59)
+                Student1.ranking = "Sophomore";
+            else if (Student1.chCompleted > 59 && Student1.chCompleted < 89)
+                Student1.ranking = "Junior";
+            else if (Student1.chCompleted > 89)
+                Student1.ranking = "Senior";
         }
 
-        public void saveDB()
+        public void saveInitialDB()
         {
 
             //Decrease number of logins
             Student1.Initial_Login--;
 
             tempStudent temp = new tempStudent();
+
+            //Pass temp object to replicate function
+            //db.Replicate_toDB(t);
 
             temp.tempID = Student1.ID;
             temp.tempName = Student1.name;
@@ -151,6 +181,7 @@ namespace PathGrad_v4_web_.Student_View
             temp.GPA = Student1.GPA;
             temp.chCompleted = Student1.chCompleted;
             temp.chRemaining = Student1.chRemaining;
+            temp.completedPercentage = Student1.completedPercentage;
             temp.ranking = Student1.ranking;
             temp.expectedGradutation = Student1.expectedGradutation;
 
@@ -177,10 +208,6 @@ namespace PathGrad_v4_web_.Student_View
             ClientScript.RegisterStartupScript(typeof(Page), "closePage", "window.close();", true);
         }
 
-        protected void GeneratePath()
-        {
-
-        }
         protected void PreviousList_SelectedIndexChanged(object sender, EventArgs e)
         {
 

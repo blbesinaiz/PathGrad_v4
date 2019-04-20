@@ -31,13 +31,13 @@ namespace PathGrad_v4_web_.Student_View {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Txt_completed1 control.
+        /// Txt_completed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Txt_completed1;
+        protected global::System.Web.UI.WebControls.TextBox Txt_completed;
         
         /// <summary>
         /// Label4 control.
@@ -49,13 +49,13 @@ namespace PathGrad_v4_web_.Student_View {
         protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// TextBox2 control.
+        /// Txt_GPA control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox Txt_GPA;
         
         /// <summary>
         /// Label2 control.
@@ -193,13 +193,13 @@ namespace PathGrad_v4_web_.Student_View {
         protected global::System.Web.UI.WebControls.Button Customize;
         
         /// <summary>
-        /// Panel_Progress control.
+        /// Img_Progress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Panel_Progress;
+        protected global::System.Web.UI.WebControls.Image Img_Progress;
         
         /// <summary>
         /// Lab_Complete control.
@@ -211,12 +211,12 @@ namespace PathGrad_v4_web_.Student_View {
         protected global::System.Web.UI.WebControls.Label Lab_Complete;
         
         /// <summary>
-        /// Txt_Complete control.
+        /// Txt_degreeStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Txt_Complete;
+        protected global::System.Web.UI.WebControls.TextBox Txt_degreeStatus;
     }
 }

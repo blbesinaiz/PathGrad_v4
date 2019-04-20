@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 using Newtonsoft.Json;
 using PathGrad_v4_web_.Logic.Models;
 using System;
@@ -88,13 +89,17 @@ namespace PathGrad_v4_web_.Student
             Txt_Graduation.Text = Student1.expectedGradutation;
             Txt_Graduation.Visible = true;
             ListBox_Path.Visible = true;
-
-            //Populate listboxes
-            //popluateListbox();
         }
 
         public string Generate_Perfect()
         {
+            //Clear previous perfect paths
+            if(yearCounter != 0)
+            {
+                currentSemester = "Fall";
+                yearCounter = 0;
+            }
+
             string pathString = "";
             //Get Student Input
 
@@ -110,7 +115,7 @@ namespace PathGrad_v4_web_.Student
             Student1.nextSemester = nextList;
 
             //Save Path Generation
-            Save_Path();
+            Update_Profile();
 
             return pathString;
         }
@@ -197,7 +202,7 @@ namespace PathGrad_v4_web_.Student
             {
 
                 //perfectList[index].Add(c.charac + " " + c.num + c.ch);
-                ListBox_Path.Items.Add(c.charac + " " + c.num + "    " + c.ch);
+                ListBox_Path.Items.Add(c.charac + " " + c.num + c.lab + "    " + c.ch);
                 Console.WriteLine("{0} {1}  {2}", c.charac, c.num, c.ch);
             }
 
@@ -219,32 +224,68 @@ namespace PathGrad_v4_web_.Student
             }
         }
 
-        public void popluateListbox()
+        public static void Update_Profile()
         {
-            //ListBox_Fresh1.DataSource = perfectList[0];
+            tempStudent temp = new tempStudent();
 
-            /*ListBox_Fresh2.DataSource = perfectList[1];
-            ListBox_Soph1.DataSource = perfectList[2];
-            ListBox_Soph2.DataSource = perfectList[3];
-            ListBox_Jun1.DataSource = perfectList[4];
-            ListBox_Jun2.DataSource = perfectList[5];
-            ListBox_Sen1.DataSource = perfectList[6];
-            ListBox_Sen2.DataSource = perfectList[7];*/
-        }
+            //Pass temp object to replicate function
+            //db.Replicate_toDB(t);
 
-        public static void Save_Path()
-        {
-            //Save perfect path to student
-            
+            temp.tempID = Student1.ID;
+            temp.tempName = Student1.name;
+            temp.tempEmail = Student1.email;
+            temp.tempInitial_Login = Student1.Initial_Login;
+            temp.tempTrack = Student1.track;
+            temp.tempAdvisor = Student1.advisor;
 
-            //update database
-            /*Console.WriteLine("Press any key");
-            Console.ReadKey();
-            var originalConsoleOut = Console.Out; // preserve the original stream
+            temp.tempCourseList = Student1.courseList;
+            temp.tempTakenCourses = Student1.takenCourses;
+            temp.tempCurrentSemester = Student1.currentSemester;
+            temp.tempNextSemester = Student1.nextSemester;
 
-            string savedPath = originalConsoleOut.ToString();
+            temp.GPA = Student1.GPA;
+            temp.chCompleted = Student1.chCompleted;
+            temp.chRemaining = Student1.chRemaining;
+            temp.completedPercentage = Student1.completedPercentage;
+            temp.ranking = Student1.ranking;
+            temp.expectedGradutation = Student1.expectedGradutation;
 
-            Console.WriteLine(originalConsoleOut);*/
+            //Serialize Object (JSON.NET method)
+            string jsonData = JsonConvert.SerializeObject(temp);
+
+
+            //Create Bson Document
+            var document = new BsonDocument
+            {
+              {"_id", Student1.ID},
+              {"profile", jsonData}
+            };
+
+            //Make Connection with database
+            var conString = "mongodb://localhost:27017";
+            var Client = new MongoClient(conString);
+            var DB = Client.GetDatabase("Path_To_Grad");
+            var collection = DB.GetCollection<BsonDocument>("Student_Profiles");
+
+            //Erase original Profile
+            //Create filter to search through DB
+            var filter = new BsonDocument
+            {
+                {"_id", Student1.ID},
+            };
+
+            //Search for desired elements
+            //If specified user found then add to list
+            List<MongoDB.Bson.BsonDocument> list = collection.Find(filter).ToList();
+            if (list.Count == 1)
+            {
+                //deleting single record
+                var Deleteone = collection.DeleteOneAsync(
+                                Builders<BsonDocument>.Filter.Eq("_id", Student1.ID));
+            }
+
+            //Reinsert new profile
+            collection.InsertOne(document);
         }
     }
 }

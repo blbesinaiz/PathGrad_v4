@@ -7,9 +7,9 @@ namespace PathGrad_v4_web_.Logic.Models
 {
     public class Course
     {
-        public string charac { get; set; }       //Better name?? CSC
-        public int num { get; set; }           //101
-        public string lab { get; set; }                //L = lab
+        public string charac { get; set; }           //Better name?? CSC
+        public int num { get; set; }                 //101
+        public string lab { get; set; }              //L = lab
         public string title { get; set; }            //Introduction to Computer Science
         public int ch { get; set; }                  // credit hour 1
         public string prerequisites { get; set; } = null;

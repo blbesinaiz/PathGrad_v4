@@ -19,8 +19,13 @@ namespace PathGrad_v4_web_.Student_View
         {
             if (!Page.IsPostBack)
             {
+                //Retrieves user info from database
                 restoreProfile();
+
+                //Sets values of fields on page
                 setupProfile();
+
+                //Grid of previous classes taken
                 setupPreviousClasses();
             }
             
@@ -28,19 +33,9 @@ namespace PathGrad_v4_web_.Student_View
 
         public void setupProfile()
         {
+            //Set Textbox field
             Txt_name.Text = "Name: " + Student1.name;
             Txt_ID.Text = "Student ID: " + Student1.ID.ToString();
-
-            //Determine Status
-            if (Student1.chCompleted > 0 && Student1.chCompleted < 29)
-                Student1.ranking = "Freshman";
-            else if(Student1.chCompleted > 29 && Student1.chCompleted < 59)
-                Student1.ranking = "Sophomore";
-            else if (Student1.chCompleted > 59 && Student1.chCompleted < 89)
-                Student1.ranking = "Junior";
-            else if (Student1.chCompleted > 89)
-                Student1.ranking = "Senior";
-
             Txt_classification.Text = "Classification: " + Student1.ranking;
             Txt_graduation.Text = "Epected Graduation: " + Student1.expectedGradutation;
             Txt_advisor.Text = "Advisor: " + Student1.advisor;
@@ -80,7 +75,10 @@ namespace PathGrad_v4_web_.Student_View
         }
         public void restoreProfile()
         {
-            Student1.ID = 0451917;
+            /***************TESTING PURPOSES****************/
+            if(Student1.ID == 0)
+                Student1.ID = 0451917;
+            
             //Make Instance of tempStudent Object
             tempStudent temp = new tempStudent();
 
@@ -120,6 +118,7 @@ namespace PathGrad_v4_web_.Student_View
             Student1.GPA = temp.GPA;
             Student1.chCompleted = temp.chCompleted;
             Student1.chRemaining = temp.chRemaining;
+            Student1.completedPercentage = temp.completedPercentage;
             Student1.ranking = temp.ranking;
             Student1.expectedGradutation = temp.expectedGradutation;
         }

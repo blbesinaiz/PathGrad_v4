@@ -18,9 +18,9 @@
             </div>
             <div class="col-md-4">
                 <asp:Label ID="Label1" runat="server" Text="Completed Credits"></asp:Label>
-                <asp:TextBox ID="Txt_completed1" runat="server" CssClass="form-control" Text="0/120" ></asp:TextBox>
+                <asp:TextBox ID="Txt_completed" runat="server" CssClass="form-control" Text="0/120" ></asp:TextBox>
                 <asp:Label ID="Label4" runat="server" Text="Grade Point Average"></asp:Label>
-                <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" Text="4.0/4.0" ></asp:TextBox>
+                <asp:TextBox ID="Txt_GPA" runat="server" CssClass="form-control" Text="4.0/4.0" ></asp:TextBox>
             </div>
             <div class="col-md-4">
                 <asp:Label ID="Label2" runat="server" Text="Ranking"></asp:Label>
@@ -47,14 +47,14 @@
             <asp:Button ID="Button1" runat="server" OnClientClick="OpenNewWindow();" Text="Customize Path" CssClass="btn btn-default" />
         </div>
         <div class="col-md-6">
-            <h2 align="center"><em>Next Semester's Coureses</em></h2>
+            <h2 align="center"><em>Next Semester's Courses</em></h2>
             <asp:Panel ID="Panel_Next" runat="server" CssClass="panel-default" BackImageUrl="~/Images/No_Data-512.png" Height="300px" Width="500px">
                 <asp:GridView ID="GridView_Next" runat="server" BackColor="White" Width="500px"></asp:GridView>
                 <br /><br />
             </asp:Panel>
             <br /><br />
             <asp:Button ID="Butt_Perfect" runat="server" Text="Generate Perfect Path" CssClass="btn btn-default" OnClick="Butt_Perfect_Click" />
-            <asp:Button ID="Butt_Alternate" runat="server" Text="Alternate Path" CssClass="btn btn-default"/>
+            <asp:Button ID="Butt_Alternate" runat="server" Text="Alternate Path" CssClass="btn btn-default" OnClick="Butt_Alternate_Click"/>
         </div>
     </div>
     <div
@@ -71,9 +71,9 @@
         </div>
         <div class="col-md-6">
             <h3>Current Roadmap</h3>
-            <asp:Image ID="Panel_Progress" runat="server" ImageUrl="~/Images/4 - Roadmap FINAL - Chart.png" width="350px" style="padding-right: 15px; padding-top: 20px;" Height="125px"/><br><br />
+            <asp:Image ID="Img_Progress" runat="server" ImageUrl="~/Images/4 - Roadmap FINAL - Chart.png" width="350px" style="padding-right: 15px; padding-top: 20px;" Height="125px"/><br><br />
             <asp:Label ID="Lab_Complete" runat="server" Text="Degree Complete: "></asp:Label>
-            <asp:TextBox ID="Txt_Complete" runat="server" Text="0%" Width="55px" CssClass="form-control" ></asp:TextBox>
+            <asp:TextBox ID="Txt_degreeStatus" runat="server" Text="0%" Width="55px" CssClass="form-control" ></asp:TextBox>
         </div>
     </div>
 </asp:Content>

@@ -94,18 +94,37 @@ namespace PathGrad_v4_web_.Student_View
             Student1.GPA = temp.GPA;
             Student1.chCompleted = temp.chCompleted;
             Student1.chRemaining = temp.chRemaining;
+            Student1.completedPercentage = temp.completedPercentage;
             Student1.ranking = temp.ranking;
             Student1.expectedGradutation = temp.expectedGradutation;
         }
 
         public void setFormValues()
         {
+            //Text Boxes
             txt_ID.Text = "Student ID: " + Student1.ID.ToString();
             txt_Email.Text = "Student Email: " + Student1.email;
             Txt_ExpectedGradauation.Text = Student1.expectedGradutation;
+            Txt_completed.Text = Student1.chCompleted.ToString() + "/120";
+            if (Student1.ranking != null)
+                Txt_ranking.Text = Student1.ranking;
+            Txt_degreeStatus.Text = Student1.completedPercentage.ToString() + "%";
 
+            //Grids of classes in progress and next semester
             DataGrid_CurrentPopulate();
             DataGrid_NextPopulate();
+
+            //Roadmap determination
+            if (Student1.chCompleted == 0)
+                Img_Progress.ImageUrl = "~/Images/NewStudent.png";
+            else if (Student1.chCompleted > 0 && Student1.chCompleted < 29)
+                Img_Progress.ImageUrl = "~/Images/FreshmanDone.png";
+            else if (Student1.chCompleted > 29 && Student1.chCompleted < 60)
+                Img_Progress.ImageUrl = "~/Images/SophomoreDone.png";
+            else if (Student1.chCompleted > 60 && Student1.chCompleted < 90)
+                Img_Progress.ImageUrl = "~/Images/JuniorDone.png";
+            else if (Student1.chCompleted > 90)
+                Img_Progress.ImageUrl = "~/Images/SeniorDone.png";
         }
 
         public void DataGrid_CurrentPopulate()
@@ -178,6 +197,11 @@ namespace PathGrad_v4_web_.Student_View
         protected void Butt_Perfect_Click(object sender, EventArgs e)
         {
             Response.Redirect("PerfectPath.aspx");
+        }
+
+        protected void Butt_Alternate_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AlternatePaths.aspx"); 
         }
     }
 }
